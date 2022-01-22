@@ -7,6 +7,7 @@
 <%@page import="java.util.List"%>
 <%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Welcome!</h1>
+<!--        <h1>Welcome!</h1>
         <%
             List<User> users = (List<User>) request.getAttribute("users");
             for(int i = 0; i< users.size(); i++){
@@ -26,5 +27,15 @@
             </tr>
         </table>
             <%}%>
+            -->
+        <table>
+            <tr>
+                <c:forEach items="${users}" var="user">
+                    <td>${user.username}</td>
+                    <td>${user.password}</td>
+                </c:forEach>
+               
+            </tr>
+        </table>
     </body>
 </html>
